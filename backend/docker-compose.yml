@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  ghosthathub:
+    image: ghosthathub
+    build:
+      context: "${BACKEND}"
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      BACKEND: "${BACKEND}"
+    ports:
+      - 3000:3000

@@ -1,0 +1,23 @@
+{
+    "name": "@ghosthat/hub",
+    "version": "1.0.0",
+    "description": "Take home test / Fulltimeforce",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "debug": "nodemon --inspect app.js",
+        "test": "run-unit-tests"
+    },
+    "author": "Jonathan Almanza",
+    "license": "ISC",
+    "dependencies": {
+        "@octokit/core": "^3.5.1",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "node-cache": "^5.1.2",
+        "nodemon": "^2.0.13",
+        "winston": "^3.3.3",
+        "winston-daily-rotate-file": "^4.5.5"
+    }
+}
