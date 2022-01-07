@@ -13,14 +13,22 @@ Repository to interact with GitHub API commits history
 ## Dockers installed and configured
 1. Download docker from [Docker.com](https://www.docker.com/products/docker-desktop)
 
+## Python installed and configured
+1. Download python from [Python.org](https://www.python.org/downloads/)
 # Deployment of code in local environment
 ## Backend
 > ### Nodejs
 
-1. Navigate to the folder: `$ cd /path/to/take-home-test/backend/` 
+1. Navigate to the folder: `$ cd /path/to/take-home-test/backend/nodejs` 
 2. Run the command: `$ npm install`
 3. Run the command: `$ npm run start`
-4. The application will be running in `localhost:3000`
+4. The backend application will be running in `localhost:3000`
+
+> ### Python
+1. Navigate to the folder: `$ cd /path/to/take-home-test/backend/python`
+2. Run the command: `$ pip install -r requirements.txt`
+2. Run the command: `$ python main.py`
+4. The backend application will be running in `localhost:3000`
 
 ## Frontend
 
