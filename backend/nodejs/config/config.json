@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "test-user",
+        "password": "test-user",
+        "database": "playground",
+        "host": "localhost",
+        "port": 5432,
+        "dialect": "postgres"
+    },
+    "testing": {
+        "username": "test-user",
+        "password": "test-user",
+        "database": "playground",
+        "host": "localhost",
+        "port": 5432,
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "test-user",
+        "password": "test-user",
+        "database": "playground",
+        "host": "localhost",
+        "port": 5432,
+        "dialect": "postgres"
+    }
+}
