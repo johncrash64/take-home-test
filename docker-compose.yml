@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  frontend:
+    build:
+      context: "./frontend/${FRONTEND}"
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      BACKEND: "${FRONTEND}"
+    ports:
+      - 8080:80
+    container_name: frontend
+    depends_on:
+      - api
+    links:
+      - api
+  api:
+    build:
+      context: "./backend/${BACKEND}"
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      BACKEND: "${BACKEND}"
+    ports:
+      - 3000:3000
+    container_name: api
