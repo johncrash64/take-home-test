@@ -5,6 +5,8 @@ Repository to interact with GitHub API commits history
 ## Create a GitHub personal access token
 
 1. Follow the next guide provided by GitHub: [Create a PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+2. For private repositories, you need to create TOKEN
+3. For public repositories, you don't need to create TOKEN
 
 ## Nodejs installed and configured
 1. Download nodejs from [Nodejs.org](https://nodejs.org/en/)
@@ -47,3 +49,11 @@ Repository to interact with GitHub API commits history
 2. Pass the BACKEND `[python| nodejs]` and FRONTEND `[vuejs]` as arguments
 3. Build the image with next cmd: `$ FRONTEND=vuejs BACKEND=nodejs docker-compose build`
 4. Deploy and up with next cmd: `$ FRONTEND=vuejs BACKEND=nodejs docker-compose up -d`
+
+# Usage of the application
+> ### Navigation
+1. First need to open the frontend application in browser `localhost:8080`
+2. Navigate to the page `/commits`
+3. Check the commits history
+4. You can see the commit file changes clicking on the sha id (Blue color)
+5. You can copy the sha id clicking on the clipboard icon
