@@ -17,4 +17,4 @@ def get_commits_history():
     current_app.logger.info(request.args.to_dict())
     all_args = request.args.to_dict()
 
-    return get_commits(all_args)
+    return get_api_data(all_args)

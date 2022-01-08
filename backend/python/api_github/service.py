@@ -4,7 +4,7 @@ import requests
 import os
 
 
-def get_commits(data):
+def get_api_data(data):
     """
     This method is to fetch the students details
     """
@@ -20,4 +20,4 @@ def get_commits(data):
 
         _result = requests.get(query_url, headers=headers, params=params)
 
-    return success_response(flatten_object(_result.json()), f"These are the {data['api']}")
+    return success_response(_result.json(), f"These are the {data['api']}")

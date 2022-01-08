@@ -15,6 +15,9 @@ Repository to interact with GitHub API commits history
 
 ## Python installed and configured
 1. Download python from [Python.org](https://www.python.org/downloads/)
+
+## Vuejs installed and configured
+1. Download vue-cli from [Vuejs.org](https://vuejs.org/v2/guide/installation.html)
 # Deployment of code in local environment
 ## Backend
 > ### Nodejs
@@ -32,15 +35,15 @@ Repository to interact with GitHub API commits history
 
 ## Frontend
 
+> ### Vuejs
+1. Navigate to the folder: `$ cd /path/to/take-home-test/frontend/vuejs`
+2. Run the command: `$ npm install`
+3. Run the command: `$ npm run serve`
+4. The frontend application will be running in `localhost:8080`
+
 # Deployment of code with Dockers
-## Backend
-> ### Nodejs
-1. Navigate to the folder: `$ cd /path/to/take-home-test/backend`
-2. Build the image with next cmd: `$ BACKEND=nodejs docker-compose build`
-2. Deploy and up with next cmd: `$ BACKEND=nodejs docker-compose up -d`
-
-> ### Python
-1. Navigate to the folder: `$ cd /path/to/take-home-test/backend`
-2. Build the image with next cmd: `$ BACKEND=python docker-compose build`
-2. Deploy and up with next cmd: `$ BACKEND=python docker-compose up -d`
-
+> ### Frontend and Backend
+1. Navigate to the folder: `$ cd /path/to/take-home-test`
+2. Pass the BACKEND `[python| nodejs]` and FRONTEND `[vuejs]` as arguments
+3. Build the image with next cmd: `$ FRONTEND=vuejs BACKEND=nodejs docker-compose build`
+4. Deploy and up with next cmd: `$ FRONTEND=vuejs BACKEND=nodejs docker-compose up -d`

@@ -4,7 +4,7 @@ LABEL maintainer="Jonathan Almanza <john.alm.cam@icloud.com>"
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "/app/"]
+COPY package*.json ./
 
 RUN npm install
 
