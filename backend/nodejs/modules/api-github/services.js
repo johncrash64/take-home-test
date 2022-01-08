@@ -1,5 +1,5 @@
 const { LoggerHelper } = require('../services/logging');
-const { flattenObject } = require('../services/_utils');
+const { flattenObject, successResponse } = require('../services/_utils');
 const { Octokit } = require("@octokit/core");
 const logger = LoggerHelper.getLoggerFor(LoggerHelper.API_GITHUB_LOG).child({ subm: 'services' });
 
@@ -17,30 +17,9 @@ class GitHubService {
         });
     }
 
-    async getCommits({ owner, repo, per_page, page }) {
-        try {
-            const response = await this.octokit.request("GET /repos/{owner}/{repo}/commits", {
-                owner, repo, per_page, page,
-            });
-            if (response && response.status === 200 && response.data) {
-
-                const _result = response.data.map(commit => {
-                    return flattenObject(commit);
-                });
-
-                return _result;
-            } else {
-                return [];
-            }
-        } catch (err) {
-            logger.error(err);
-            throw err;
-        }
-    }
-
     async getGitObject({ api, owner, repo, per_page, page }) {
         try {
-            const response = await this.octokit.request(`GET /repost/{owner}/{repo}/${api}`, {
+            const response = await this.octokit.request(`GET /repos/{owner}/{repo}/${api}`, {
                 owner, repo, per_page, page,
             });
             if (response && response.status === 200 && response.data) {
@@ -49,7 +28,7 @@ class GitHubService {
                     return flattenObject(entity);
                 });
 
-                return _result;
+                return await successResponse(response.data, `These are the ${api}`);
             } else {
                 return [];
             }

@@ -24,32 +24,6 @@ const getEnvironmentType = () => {
     return env;
 };
 
-/**
- * Appends a object properties as headers of the response
- *
- * @param headersObject the object which properties will be saved has headers
- * @param response A Express Response
- * @param exclude The headers names that must not be copy to the response
- */
- const appendToHeaders = (headersObject, response, exclude=[]) => {
-    const excludeHeaders = exclude.map(x => x.toLowerCase());
-
-    if (!headersObject || typeof(headersObject) !== 'object') {
-        throw new TypeError('Invalid headers object')
-    }
-
-    if (!response || typeof response.append !== 'function') {
-        throw new TypeError('Invalid response object, an express ServerResponse expected')
-    }
-
-    for (let [k ,v] of Object.entries(headersObject)) {
-        if (!excludeHeaders.includes(k.toLowerCase())) {
-            response.append(k, v)
-        }
-    }
-
-    return response
-};
 const validateParams = (obj, params) => {
     for (let i = 0; i < params.length; i++) {
         if (!obj.hasOwnProperty(params[i])) {
@@ -65,15 +39,29 @@ const handleErrors = (error, httpResponse) => {
     if (error instanceof TypeError) {
         httpResponse.status(400).json({ error: error.message || error });
     } else if (error.response) {
-        if (error.response.headers) {
-            appendToHeaders(error.response.headers, httpResponse)
-        }
 
         httpResponse.status(error.response.status).json({ error: error.response.data });
     } else {
         httpResponse.status(500).json({ error: "Internal server error, unable to handle request" });
     }
 };
+
+const successResponse = async (result, message = '') => {
+    format = {
+        'status': 'success',
+        'message': message,
+        'data': result
+    }
+    return format;
+}
+
+const errorResponse = async (error) => {
+    format = {
+        'status': 'failed',
+        'error': message,
+    }
+    return format;
+}
 
 const flattenObject = (ob) => {
     var toReturn = {};
@@ -99,5 +87,7 @@ module.exports = {
     getEnvironmentType,
     handleErrors,
     validateParams,
-    flattenObject
+    flattenObject,
+    successResponse,
+    errorResponse
 };
